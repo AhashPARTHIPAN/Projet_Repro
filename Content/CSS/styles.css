@@ -14,7 +14,7 @@ body {
 /* ------ DEBUT HEADER ------ */
 header {
     background-color: #293358;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: block;
     position: relative;
@@ -24,19 +24,20 @@ header {
 img {
     max-width: auto;
     height: 45px;
+    margin-left: 20px;
 }
 
 nav {
     display: inline-block;
     float: right;
     vertical-align: middle;
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 nav a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     padding: 10px 20px;
     background-color: rgba(41, 51, 88, 1);
     border-radius: 8px;
@@ -264,3 +265,25 @@ footer a:hover {
     }
 }
 /* ------ FIN RESPONSIVE ------ */
+
+@view-transition {
+    navigation: auto;
+}
+  
+::view-transition-group(*) {
+animation-duration: .33s;
+}
+
+::view-transition-old(root) {
+animation: .33s ease-in both leave;
+}
+
+::view-transition-new(root) {
+animation: .33s ease-in both enter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+::view-transition-group(*) {
+    animation-duration: 0s;
+}
+}
