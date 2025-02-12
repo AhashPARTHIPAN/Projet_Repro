@@ -46,8 +46,8 @@
                 <option value="En cours">En cours</option>
                 <option value="Terminée">Terminée</option>
                 <option value="Non traitée">Non traitée</option>
-            </select>
-            <button>Valider</button>
+            </select>&nbsp
+            <button class="button">Valider</button>
         </form>
 
         <b>Commentaire : </b><?= estVide($details["commentaire"]);?><br>

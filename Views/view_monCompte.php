@@ -25,6 +25,11 @@
             <input type="email" placeholder="Nouveau mail" name="email" value="<?=$infos_compte["email"];?>">
         </div>
 
+        <div>
+            <label for="numTel">Numéro de téléphone</label>
+            <input type="text" placeholder="Nouveau numéro de téléphone" name="numTel" value="<?=$infos_compte["numTel"] ;?>">
+        </div>
+
         <button class="button">Modifier les informations</button>
     </form>
 </section>

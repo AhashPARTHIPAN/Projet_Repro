@@ -38,7 +38,7 @@
         <div>
             <label>Types de brochure <span class="obligatoire">*</span></label>
             <?php foreach ($data["typesBrochures"] as $type_brochure): ?>
-                <label class="radio-flex"><input type="radio" name="typeBrochure" value="<?= $type_brochure["nomBrochure"]; ?>" class="type-brochure" required ><?= $type_brochure["nomBrochure"]; ?></label>
+                <label class="radio-flex type-brochure"><input type="radio" name="typeBrochure" value="<?= $type_brochure["nomBrochure"]; ?>" required ><?= $type_brochure["nomBrochure"]; ?></label>
             <?php endforeach; ?>
         </div>
 
@@ -50,7 +50,6 @@
             required >
                 <option value="A4">A4</option>
                 <option value="A3">A3</option>
-                <option value="A5">A5</option>
             </select>
             </label>
         </div>
@@ -152,7 +151,7 @@
             <label>
                 <input type="file" name="fichier" id="fileInput" accept=".pdf,.ps,.pcl,.docx" required>
             </label>
-            <em><p class="file-note" style="opacity: 0.8; font-size: 15px;">Formats autorisés: .pdf, .ps, .pcl, .docx<br>Taille maximum autorisée: 200 Mo</p></em>
+            <em><p class="file-note" style="opacity: 0.8; font-size: 15px;">Formats autorisés: .pdf, .ps, .pcl, .docx: attention, risque de mauvais impression<br>Taille maximum autorisée: 200 Mo</p></em>
         </div>
         
 
