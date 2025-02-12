@@ -1,19 +1,19 @@
-<?php include "view_begin_enseignant.php"; ?>
+<?php include "view_begin.php";?>
 
 <section>
     <h1>Demandes en cours</h1>
 
     <table>
-        <tr> <th>Dept.</th> <th>Nb. pages</th> <th>Nb. copies</th> <th>Agrafe</th> <th>Types</th> <th>Date de livraison</th> <th>Status</th></tr>
+        <tr> <th>Dept.</th> <th>Nb. pages</th> <th>Nb. copies</th> <th>Agrafe</th> <th>Types</th> <th>Date de livraison</th> <th>Statut</th></tr>
         <?php foreach ($data["ens_demande"] as $demande): ?>
             <tr>
                 <td><?= $demande["nom"]; ?></td>
                 <td><?= $demande["nb_pages"]; ?></td>
                 <td><?= $demande["nb_copies"]; ?></td>
-                <td><?php if($demande["agrafes"] === true){echo "Oui";} else{echo "Non";}?></td>
+                <td><?php if($demande["agrafes"] == true){echo "Oui";} else{echo "Non";}?></td>
                 <td><?= $demande["nomBrochure"]; ?></td>
                 <td><?= $demande["date_demande"]; ?></td>
-                <td class="status"><?= $demande["status"]; ?></td>
+                <td class="statut"><?= $demande["statut"]; ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

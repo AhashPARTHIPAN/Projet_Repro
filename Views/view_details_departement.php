@@ -1,5 +1,5 @@
 <?php 
-    require "view_begin_responsable.php";
+    require "view_begin.php";
     $details_departement = $data["details_departement"];    
 ?>
 
