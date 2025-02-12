@@ -11,8 +11,8 @@ $controllers = ["home_user", "home_resp", "formRequest", "list", "demande"];
 
 $controller_default = "home";
 
-$_SESSION['identifiant'] = 3;
-$_SESSION['eduPersonPrimaryAffiliation'] = "responsable"; //10% livre ou partition musicale // 30% journal ou un périodique.
+$_SESSION['identifiant'] = 7;
+$_SESSION['eduPersonPrimaryAffiliation'] = "stu"; //10% livre ou partition musicale // 30% journal ou un périodique.
 
 //On teste si le paramètre controller existe et correspond à un contrôleur de la liste $controllers
 if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
@@ -46,6 +46,10 @@ if (is_readable($nom_fichier)) {
 }
 
 
-// RAJOUTER NUM TEL DANS BDD
-// A5 UNIQUEMENT POUR LIVRET
+
+
+
+
+
+// RAJOUTER NUM TEL DANS BDD + modif la page MonCompte
 // DATE DE TRANSMISSION DU DOC.
