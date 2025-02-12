@@ -1,11 +1,11 @@
-const demande_status = document.querySelectorAll(".status");
-if (demande_status != []){
-    demande_status.forEach(stat => {
-        let status_content = stat.textContent;
-        if(status_content == "En cours"){
+const demande_statut = document.querySelectorAll(".statut");
+if (demande_statut != []){
+    demande_statut.forEach(stat => {
+        let statut_content = stat.textContent;
+        if(statut_content == "En cours"){
             stat.style.color = "orange";
         }
-        else if(status_content == "Non traitée"){
+        else if(statut_content == "Non traitée"){
             stat.style.color = "red";
         }
         else {

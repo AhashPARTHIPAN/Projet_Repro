@@ -1,5 +1,3 @@
-// Sélectionner toutes les balises nécessaires
-
 // ------ DEBUT APPARAITRE/CACHER ------ //
 
 // Pour afficher les options de couverture
@@ -19,22 +17,40 @@ const finitionMultipleCheck = document.getElementById("finition_multiple_check")
 const finitionMultipleChoix = document.getElementById("finition_multiple_choix");
 
 // Pour afficher/cacher les types de perforation (si perforation choisi)
+const pliageOui = document.getElementById("pliage");
+const crea_cahierOui = document.getElementById("crea_cahier");
 const perforationOui = document.getElementById("perforation_radio");
-const typePerforation = document.querySelectorAll(".type_perforation");
+const typesPerforation = document.querySelectorAll(".type_perforation");
+const trous2 = document.getElementById("trous2");
+const trous3 = document.getElementById("trous3");
 
-perforationOui.addEventListener("click", () => {
+perforationOui.addEventListener("click", ()=>{
     if(perforationOui.checked){
-        typePerforation.forEach(type => {
-            type.style.display = "block";
-        });
+        typesPerforation.forEach(type => {
+            type.style.display = "inline-block";
+        })
     }
-    else{
-        typePerforation.forEach(type => {
-            type.style.display = "none";
-        });
-    }
-});
+})
 
+pliageOui.addEventListener("click", ()=>{
+    if(pliageOui.checked){
+        typesPerforation.forEach(type => {
+            type.style.display = "none";
+        })
+        trous2.checked = false;
+        trous3.checked = false;
+    }
+})
+
+crea_cahierOui.addEventListener("click", ()=>{
+    if(crea_cahierOui.checked){
+        typesPerforation.forEach(type => {
+            type.style.display = "none";
+        })
+        trous2.checked = false;
+        trous3.checked = false;
+    }
+})
 
 // onclick rendre visible couverture de debut et de fin
 couvertureOui.addEventListener("click", () => {
@@ -84,6 +100,7 @@ finitionMultipleCheck.addEventListener("click", ()=>{
     }
 })
 
+
 // ------ FIN AFFICHER/CACHER ------ //
 
 // ------ DEBUT VERIF DATE ------ //
@@ -121,6 +138,8 @@ date_demande.addEventListener('change', () => {
 
 // ------ FIN VERIF DATE ------ //
 
+// ------ DEBUT VERIF TAILLE FICHIER ------ //
+
 const fileInput = document.getElementById('fileInput');
 const maxSize = 200 * 1024 * 1024; // 200 Mo en octets
 
@@ -133,3 +152,5 @@ fileInput.addEventListener('change', () => {
         }
     }
 });
+
+// ------ FIN VERIF TAILLE FICHIER ------ //
