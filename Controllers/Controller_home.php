@@ -6,22 +6,16 @@ class Controller_home extends Controller
     {
         $m = Model::getModel();
 
-        if(isset($_SESSION) && isset($_SESSION["eduPersonPrimaryAffiliation"]) && isset($_SESSION["identifiant"])){
-            $id = $_SESSION["identifiant"];
-            $affiliation = $_SESSION["eduPersonPrimaryAffiliation"];
-        }
-        else{
-            $this->action_error("Aucun utilisateur défini.");
-        }
+        $affiliation = $_SESSION["eduPersonPrimaryAffiliation"];
+        $id = $_SESSION["identifiant"];
 
-        if($affiliation === "responsable"){
-            
-            $status = "En attente";
+        if($affiliation == "responsable"){
             $data = [
                 "resp_info" => $m->getUserInfo($id),
-                "resp_demande_en_att" => $m->getDemandeParStatus($status)
+                "resp_demande_en_att" => $m->getDemandeNonTerminee()
             ];
             $this->render("home_responsable", $data);
+            return;
         }
         else{
             $data = [
@@ -29,6 +23,7 @@ class Controller_home extends Controller
                 "ens_demande" => $m->getDemandeForEns($id)
             ];
             $this->render("home_enseignant", $data);
+            return;
         }
     }
 

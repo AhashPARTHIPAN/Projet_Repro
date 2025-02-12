@@ -5,10 +5,19 @@ class Controller_list extends Controller
     public function action_dashboard()
     {
         $m = Model::getModel();
+
         $data = [
-            "etat_demandes" => $m->getEtatDemandes(),
-            "stats_par_departement" => $m->getStatsParDepartement()
+            "etat_demandes" => $m->getEtatDemandes(0),
+            "stats_par_departement" => $m->getStatsParDepartement(0)
         ];
+
+        if(isset($_GET["annee"]) && preg_match("/^[1-9]\d*$/", $_GET["annee"])){
+            $data = [
+                "etat_demandes" => $m->getEtatDemandes($_GET["annee"]),
+                "stats_par_departement" => $m->getStatsParDepartement($_GET["annee"])
+            ];
+        }
+
         $this->render("tableau_de_bord", $data);
     }
 
@@ -20,7 +29,7 @@ class Controller_list extends Controller
     public function action_historique(){
         $m = Model::getModel();
         $data = [
-            "demande_anciennes" => $m->getDemandeParStatus("Terminée")
+            "demande_anciennes" => $m->getDemandeTerminee()
         ];  
         $this->render("historique", $data);
     }
@@ -54,6 +63,16 @@ class Controller_list extends Controller
         else{
             $this->render("details_departement", $data);
         }
+    }
+
+    public function action_monCompte(){
+        $m = Model::getModel();
+        $identifiant = $_SESSION["identifiant"];
+
+        $data = [
+            "informations" => $m->getUserInfo($identifiant)
+        ];
+        $this->render("monCompte", $data);
     }
 
 }

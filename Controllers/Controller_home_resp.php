@@ -6,10 +6,10 @@ class Controller_home_resp extends Controller
     {
         $m = Model::getModel();
         $id = $_SESSION["identifiant"];
-        $status = "En cours";
+        $statut = "En cours";
         $data = [
             "resp_info" => $m->getUserInfo($id),
-            "resp_demande_en_att" => $m->getDemandeParStatus($status)
+            "resp_demande_en_att" => $m->getDemandeNonTerminee()
         ];
         $this->render("home_responsable", $data);
     }
