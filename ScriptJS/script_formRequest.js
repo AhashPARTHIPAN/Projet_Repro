@@ -1,5 +1,3 @@
-// ------ DEBUT APPARAITRE/CACHER ------ //
-
 // Pour afficher les options de couverture
 const couvertureOui = document.getElementById('couverture_oui');
 const couvertureDebutFin = document.querySelectorAll('.couv');
@@ -24,31 +22,28 @@ const typesPerforation = document.querySelectorAll(".type_perforation");
 const trous2 = document.getElementById("trous2");
 const trous3 = document.getElementById("trous3");
 
-perforationOui.addEventListener("click", ()=>{
-    if(perforationOui.checked){
-        typesPerforation.forEach(type => {
-            type.style.display = "inline-block";
+const typeBrochure = document.querySelectorAll(".type-brochure");
+const formats = document.getElementById("format");
+
+typeBrochure.forEach(brochure => {
+    if(brochure.textContent == "Livret"){
+        brochure.addEventListener("click", () => {
+            const optionExiste = formats.querySelector("option[value='2']");
+            if (optionExiste) {
+                formats.value = 2;
+            } else {
+                formats.innerHTML += "<option value='2' selected>A5</option>";
+            }
         })
     }
-})
-
-pliageOui.addEventListener("click", ()=>{
-    if(pliageOui.checked){
-        typesPerforation.forEach(type => {
-            type.style.display = "none";
+    else {
+        brochure.addEventListener("click", () => {
+            // Si ce n'est pas "Livret", on supprime l'option A5 si elle existe
+            const optionToRemove = formats.querySelector("option[value='2']");
+            if (optionToRemove) {
+                optionToRemove.remove();
+            }
         })
-        trous2.checked = false;
-        trous3.checked = false;
-    }
-})
-
-crea_cahierOui.addEventListener("click", ()=>{
-    if(crea_cahierOui.checked){
-        typesPerforation.forEach(type => {
-            type.style.display = "none";
-        })
-        trous2.checked = false;
-        trous3.checked = false;
     }
 })
 
@@ -100,6 +95,33 @@ finitionMultipleCheck.addEventListener("click", ()=>{
     }
 })
 
+pliageOui.addEventListener("click", ()=>{
+    if(pliageOui.checked){
+        typesPerforation.forEach(type => {
+            type.style.display = "none";
+        })
+        trous2.checked = false;
+        trous3.checked = false;
+    }
+})
+
+crea_cahierOui.addEventListener("click", ()=>{
+    if(crea_cahierOui.checked){
+        typesPerforation.forEach(type => {
+            type.style.display = "none";
+        })
+        trous2.checked = false;
+        trous3.checked = false;
+    }
+})
+
+perforationOui.addEventListener("click", ()=>{
+    if(perforationOui.checked){
+        typesPerforation.forEach(type => {
+            type.style.display = "inline-block";
+        })
+    }
+})
 
 // ------ FIN AFFICHER/CACHER ------ //
 
