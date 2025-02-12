@@ -7,12 +7,12 @@ require_once "Models/Model.php";
 
 require_once "Controllers/Controller.php";
 
-$controllers = ["home_user", "home_resp", "formRequest", "list", ""];
+$controllers = ["home_user", "home_resp", "formRequest", "list", "demande"];
 
-$controller_default = "home_user";
+$controller_default = "home";
 
 $_SESSION['identifiant'] = 3;
-$_SESSION['eduPersonPrimaryAffiliation'] = "responsable";
+$_SESSION['eduPersonPrimaryAffiliation'] = "responsable"; //10% livre ou partition musicale // 30% journal ou un périodique.
 
 //On teste si le paramètre controller existe et correspond à un contrôleur de la liste $controllers
 if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
@@ -44,3 +44,8 @@ if (is_readable($nom_fichier)) {
     echo $nom_fichier;
     die("Error 404: not found!");
 }
+
+
+// RAJOUTER NUM TEL DANS BDD
+// A5 UNIQUEMENT POUR LIVRET
+// DATE DE TRANSMISSION DU DOC.
