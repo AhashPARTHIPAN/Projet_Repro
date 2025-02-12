@@ -21,13 +21,14 @@ header {
     color: #fff;
 }
 
-header img {
+img {
     max-width: auto;
     height: 45px;
 }
 
 nav {
     display: inline-block;
+    float: right;
     vertical-align: middle;
     margin-top: 15px;
 }
@@ -107,8 +108,12 @@ form label {
     margin-right: 15px;
 }
 
-form .space {
+form div {
     margin-bottom: 30px;
+}
+
+form div .couv {
+    margin-bottom: 0;
 }
 
 
@@ -127,6 +132,17 @@ input[type="text"], input[type="number"], input[type="email"], input[type="passw
     border-radius: 5px;
     font-size: 16px;
     transition: border-color 0.3s ease;
+}
+
+#choix_statut_form {
+    margin-bottom: 0;
+}
+
+#choix_statut {
+    width: auto;
+    text-align: center;
+    padding: 0;
+    font-size: medium;
 }
 
 input[type="radio"], input[type="checkbox"] {
@@ -149,7 +165,7 @@ input:focus {
     border-color: #293358;
 }
 
-button {
+.button {
     background-color: #293358;
     color: #fff;
     padding: 10px 20px;
@@ -157,9 +173,10 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.2s ease;
+    text-decoration: none;
 }
 
-button:hover {
+.button:hover {
     transform: scale(1.05);
     background-color: #1e284a;
 }
@@ -171,7 +188,7 @@ input[type="color"] {
 }
 
 .obligatoire {
-    color: red;
+    color: rgb(255, 0, 0);
 }
 /* ------ FIN FORMULAIRE ------ */
 
@@ -185,22 +202,46 @@ table {
 th, td {
     padding: 12px;
     border: 1px solid #ddd;
-    text-align: left;
+    text-align: center;
+}
+
+.dept_stat a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+
+.dept_stat:hover {
+    transform: scale(1.05);
+    background-color: #c7c7c7;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.);
 }
 /* ------ FIN TABLE ------ */
 
 /* ------ DEBUT FOOTER ------ */
 footer {
-    background-color: #fff;
-    padding: 10px;
+    background-color: #293358;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block;
+    position: relative;
+    color: #fff;
     text-align: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 footer p {
-    color: #293358;
-    font-size: 14px;
+    margin: 5px 0;
 }
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 /* ------ FIN FOOTER ------ */
 
 /* ------ DEBUT RESPONSIVE ------ */
